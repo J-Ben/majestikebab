@@ -1,29 +1,27 @@
 import React, { useState, useEffect }  from 'react';
-import './Viande.css';
+import './Choice.css';
 import LogoKabab from "../images/Logo-MagicKebab.png"
-import Viande from "../models/Item"
-import { useHistory } from "react-router-dom";
 import Checkout from '../components/Checkout';
 
+import Sauce from "../models/Item"
+import { useHistory } from "react-router-dom";
 
 
-const Viande = () => {
-  const [viandes, setViandes] = useState([])
+
+
+const Choice = () => {
+  const [sauces, setSauces] = useState([])
   const [checkout, setCheckout] = useState([])
+
   const history = useHistory();
 
 
   useEffect(() => {
-    fetch("https://run.mocky.io/v3/af1894a5-d6fb-48cb-9aad-298d82cab005")
+    fetch("https://run.mocky.io/v3/4bef230f-fb4c-47fb-b8b5-d75d83bbc764")
       .then(res => res.json())
-      .then(res => setViandes(res))
+      .then(res => setSauces(res))
   }, [])
 
-  useEffect(() => {
-    fetch("https://run.mocky.io/v3/d3562337-9bcc-45af-9c7d-4076860c2b03")
-      .then(res => res.json())
-      .then(res => setViandes(res))
-  }, [])
 
   const addToCart = kebab => {
     if (checkout.find(el => el.kebab.name === kebab.name)) {
@@ -43,8 +41,8 @@ const Viande = () => {
 
     return (
         <>
-            <div className="appviande">
-                <div className="logoviande">
+            <div className="apponeChoice">
+                <div className="logoone">
                 <nav >
         <img
           height="100px"
@@ -55,14 +53,15 @@ const Viande = () => {
        
       </nav>
                 </div>
-                <div className="montext">Plutot viande ou Tofu ?</div>
+                <div className="montext">Quelques Sauces?</div>
                 <div className="card">
-                {viandes.map(viande => (
-          <Viande key={viande.name} item={viande} addToCart={addToCart}  />
+                {sauces.map(sauce => (
+          <Sauce key={sauce.name} item={sauce} addToCart={addToCart}  />
           
         ))}</div>
-        <div className="buttonviande"  onClick={()=> history.push("/three")} >Continuer</div>
-        <Checkout checkout={checkout} />
+         <div className="buttoninone"   >Continuer</div>
+         <Checkout checkout={checkout} />
+
                 <div className="titrekebab">MAGIC KEBAB</div>
             
             </div>
@@ -70,4 +69,4 @@ const Viande = () => {
     )
 }
 
-export default Viande
+export default Choice

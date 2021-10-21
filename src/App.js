@@ -1,10 +1,10 @@
 import './App.css';
 import Home from "../src/pages/Home";
 import {BrowserRouter, Switch, Route} from "react-router-dom"
-import Two from './pages/Two';
-import Three from './pages/Three';
-import Four from './pages/Four';
-import Five from './pages/Five';
+import Joice from './pages/Joice';
+import Compo from './pages/Compo';
+import Choice from './pages/Choice';
+import Check from './pages/Check';
 
 function App() {
   return (
@@ -13,19 +13,19 @@ function App() {
       
         <Switch>
           <Route exact path="/">
-            <One />
+            <Home />
           </Route>
-          <Route exact path="/two">
-            <Two />
+          <Route exact path="/joice">
+            <Joice />
           </Route>
-          <Route exact path="/three">
-            <Three />
+          <Route exact path="/compo">
+            <Compo />
           </Route>
-          <Route exact path="/four">
-            <Four />
+          <Route exact path="/choice">
+            <Choice />
           </Route>
-          {/* <Route exact path="/five">
-            <Five />
+          {/* <Route exact path="/check">
+            <Check />
           </Route> */}
           
         </Switch>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from 'react';
-import './Four.css';
+import './Sauce.css';
 import LogoKabab from "../images/Logo-MagicKebab.png"
 import Cart from "../components/Checkout"
 import Sauce from "../models/Item"
@@ -10,7 +10,7 @@ import Pain from "../models/Item"
 
 
 
-const Five = () => {
+const Check = () => {
 
     const [pains, setPain] = useState([])
     const [checkout, setCheckout] = useState([])
@@ -46,7 +46,7 @@ const Five = () => {
        
       </nav>
                 </div>
-                <div className="montext">Quelques Sauces?</div>
+                <div className="montext">Quelles Sauces?</div>
                 <div className="card">
                 {pains.map(saucey => (
           <Pain key={saucey.name} item={saucey}  />
@@ -60,4 +60,4 @@ const Five = () => {
     )
 }
 
-export default Five
+export default Check

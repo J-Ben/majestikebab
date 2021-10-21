@@ -1,27 +1,25 @@
 import React, { useState, useEffect }  from 'react';
-import './Four.css';
+import './Home.css';
 import LogoKabab from "../images/Logo-MagicKebab.png"
+import Accomp from "../models/Item"
+import { useHistory } from "react-router-dom";
 import Checkout from '../components/Checkout';
 
-import Sauce from "../models/Item"
-import { useHistory } from "react-router-dom";
 
 
-
-
-const Four = () => {
-  const [sauces, setSauces] = useState([])
+const Compo = () => {
+  const [accomps, setAccomp] = useState([])
   const [checkout, setCheckout] = useState([])
 
   const history = useHistory();
 
 
-  useEffect(() => {
-    fetch("https://run.mocky.io/v3/4bef230f-fb4c-47fb-b8b5-d75d83bbc764")
-      .then(res => res.json())
-      .then(res => setSauces(res))
-  }, [])
 
+  useEffect(() => {
+    fetch("https://run.mocky.io/v3/d8f0f6c4-3fea-4c1f-9019-ce796ff38112")
+      .then(res => res.json())
+      .then(res => setAccomp(res))
+  }, [])
 
   const addToCart = kebab => {
     if (checkout.find(el => el.kebab.name === kebab.name)) {
@@ -39,9 +37,10 @@ const Four = () => {
     }
   }
 
+
     return (
         <>
-            <div className="apponefour">
+            <div className="appone">
                 <div className="logoone">
                 <nav >
         <img
@@ -53,15 +52,14 @@ const Four = () => {
        
       </nav>
                 </div>
-                <div className="montext">Quelques Sauces?</div>
+                <div className="montext">Salades, Tomates, Oignons ?</div>
                 <div className="card">
-                {sauces.map(sauce => (
-          <Sauce key={sauce.name} item={sauce} addToCart={addToCart}  />
+                {accomps.map(accomp => (
+          <Accomp key={accomp.name} item={accomp} addToCart={addToCart} />
           
         ))}</div>
-         <div className="buttoninone"   >Continuer</div>
+         <div className="buttonone" onClick={()=> history.push("/four")}>Continuer</div>
          <Checkout checkout={checkout} />
-
                 <div className="titrekebab">MAGIC KEBAB</div>
             
             </div>
@@ -69,4 +67,4 @@ const Four = () => {
     )
 }
 
-export default Four
+export default Compo
